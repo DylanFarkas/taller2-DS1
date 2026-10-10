@@ -38,8 +38,9 @@ export default function EditProductForm() {
 
   return (
     <div>
-      <form onSubmit={onSubmit} className="flex flex-col gap-4 max-w-55">
+      <form onSubmit={onSubmit} className="flex max-w-sm flex-col gap-3">
         <input
+          className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-gray-400"
           type="text"
           placeholder="Nombre"
           {...register("name", { required: true })}
@@ -48,6 +49,7 @@ export default function EditProductForm() {
           <span className="text-red-500">El nombre es requerido</span>
         )}
         <input
+          className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-gray-400"
           type="number"
           placeholder="Precio"
           {...register("price", { required: true })}
@@ -55,7 +57,12 @@ export default function EditProductForm() {
         {errors.price && (
           <span className="text-red-500">El precio es requerido</span>
         )}
-        <select name="" id="" {...register("category", { required: true })}>
+        <select
+          className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-gray-400"
+          name=""
+          id=""
+          {...register("category", { required: true })}
+        >
           <option value="">Selecciona una categoría</option>
           {categories.map((category) => (
             <option key={category.id} value={category.id}>
@@ -67,6 +74,7 @@ export default function EditProductForm() {
           <span className="text-red-500">La categoría es requerida</span>
         )}
         <input
+          className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-gray-400"
           type="number"
           placeholder="Cantidad"
           {...register("stock", { required: true })}
@@ -74,7 +82,7 @@ export default function EditProductForm() {
         {errors.stock && (
           <span className="text-red-500">La cantidad es requerida</span>
         )}
-        <button type="submit" className="text-white p-2 bg-black rounded-lg">
+        <button type="submit" className="cursor-pointer rounded-lg bg-black px-4 py-2 text-sm font-medium text-white">
           Actualizar Producto
         </button>
       </form>

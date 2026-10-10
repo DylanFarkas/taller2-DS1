@@ -28,51 +28,58 @@ export default function ListProducts() {
   }, []);
 
   return (
-    <div>
+    <div className="mt-6">
       <div>
         {loading ? (
-          <p>Cargando productos...</p>
+          <p className="text-sm text-gray-500">Cargando productos...</p>
         ) : (
-          <table>
-            <thead>
-              <tr>
-                <td>ID</td>
-                <td>Nombre</td>
-                <td>Precio</td>
-                <td>Categoria</td>
-                <td>Cantidad</td>
-                <td>Acciones</td>
-              </tr>
-            </thead>
-            <tbody>
-              {products.map((product) => (
-                <tr key={product.id}>
-                  <td>{product.id}</td>
-                  <td>{product.name}</td>
-                  <td>{product.price}</td>
-                  <td>{product.category_name}</td>
-                  <td>{product.stock}</td>
-                  <td>
-                    <a href={`/edit-product/${product.id}`} className="text-white p-2 bg-blue-500 px-5 rounded-md mx-2">
-                      Editar
-                    </a>
-                    <button
-                      className="bg-red-500 text-white px-4 py-1 rounded-md mx-2"
-                      onClick={() => handleDelete(product.id)}
-                    >
-                      Eliminar
-                    </button>
-                  </td>
+          <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
+            <table className="w-full min-w-160 text-sm">
+              <thead className="bg-gray-50 text-left text-xs font-medium uppercase tracking-wide text-gray-500">
+                <tr>
+                  <th className="px-4 py-3 font-medium">ID</th>
+                  <th className="px-4 py-3 font-medium">Nombre</th>
+                  <th className="px-4 py-3 font-medium">Precio</th>
+                  <th className="px-4 py-3 font-medium">Categoria</th>
+                  <th className="px-4 py-3 font-medium">Cantidad</th>
+                  <th className="px-4 py-3 font-medium">Acciones</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {products.map((product) => (
+                  <tr key={product.id}>
+                    <td className="px-4 py-3">{product.id}</td>
+                    <td className="px-4 py-3">{product.name}</td>
+                    <td className="px-4 py-3">{product.price}</td>
+                    <td className="px-4 py-3">{product.category_name}</td>
+                    <td className="px-4 py-3">{product.stock}</td>
+                    <td className="px-4 py-3">
+                      <div className="flex gap-2">
+                        <a
+                          href={`/edit-product/${product.id}`}
+                          className="rounded-md bg-blue-600 px-3 py-1.5 text-xs font-medium text-white"
+                        >
+                          Editar
+                        </a>
+                        <button
+                          className="rounded-md bg-red-600 px-3 py-1.5 text-xs font-medium text-white"
+                          onClick={() => handleDelete(product.id)}
+                        >
+                          Eliminar
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
-      <div className="mt-5 mb-5">
+      <div className="mt-4">
         <a
           href="create-product/"
-          className="text-white p-2 bg-black rounded-lg"
+          className="inline-block rounded-lg bg-black px-4 py-2 text-sm font-medium text-white"
         >
           Crear Producto
         </a>

@@ -1,10 +1,12 @@
 import EditProductForm from "../components/products/EditProductForm";
 
 export default function EditProduct() {
-    return (
-        <div className="p-20">
-            <h1 className="text-5xl font-bold mb-10">Editar Producto</h1>
-            <EditProductForm />
-        </div>
-    )
+  return (
+    <div>
+      <h1 className="mb-6 text-2xl font-semibold tracking-tight">
+        Editar producto
+      </h1>
+      <EditProductForm />
+    </div>
+  );
 }

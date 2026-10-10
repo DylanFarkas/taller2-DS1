@@ -31,9 +31,9 @@ export default function EditUserForm() {
     });
 
     return(
-        <form onSubmit={onSubmit} className="flex flex-col gap-3 max-w-80">
+        <form onSubmit={onSubmit} className="flex max-w-sm flex-col gap-3">
         <input
-          className="p-2 border border-gray-300 rounded-md"
+          className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-gray-400"
           type="text"
           placeholder="Nombre de usuario"
           {...register("username", { required: true })}
@@ -44,7 +44,7 @@ export default function EditUserForm() {
           </span>
         )}
         <input
-          className="p-2 border border-gray-300 rounded-md"
+          className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-gray-400"
           type="email"
           placeholder="Email"
           {...register("email", { required: true })}
@@ -53,7 +53,7 @@ export default function EditUserForm() {
           <span className="text-red-500 text-sm">El email es requerido</span>
         )}
         <input
-          className="p-2 border border-gray-300 rounded-md"
+          className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-gray-400"
           type="password"
           placeholder="Contraseña"
           {...register("password", { required: true })}
@@ -62,7 +62,7 @@ export default function EditUserForm() {
           <span className="text-red-500 text-sm">La contraseña es requerida</span>
         )}
         <input
-          className="p-2 border border-gray-300 rounded-md"
+          className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-gray-400"
           type="number"
           placeholder="Teléfono"
           {...register("phone", { required: true })}
@@ -71,7 +71,7 @@ export default function EditUserForm() {
           <span className="text-red-500 text-sm">El teléfono es requerido</span>
         )}
         <input
-          className="p-2 border border-gray-300 rounded-md"
+          className="rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm outline-none focus:border-gray-400"
           type="text"
           placeholder="Identificación"
           {...register("identification", { required: true })}
@@ -82,7 +82,7 @@ export default function EditUserForm() {
           </span>
         )}
         <button
-          className="bg-black text-white p-2 rounded-full cursor-pointer"
+          className="cursor-pointer rounded-lg bg-black px-4 py-2 text-sm font-medium text-white"
           type="submit"
         >
           Actualizar Usuario

@@ -28,53 +28,54 @@ export default function ListUsers() {
   };
 
   return (
-    <div className="flex flex-col gap-4 mt-10">
+    <div className="mt-6 flex flex-col gap-4">
       {loading ? (
-        <p>Cargando usuarios...</p>
+        <p className="text-sm text-gray-500">Cargando usuarios...</p>
       ) : (
-        <table className="w-full">
-        <thead className="border border-gray-300 text-center">
-          <tr>
-            <td>Nombre</td>
-            <td>Email</td>
-            <td>Teléfono</td>
-            <td>Rol</td>
-            <td>Identificación</td>
-            <td>Acciones</td>
-          </tr>
-        </thead>
-        <tbody className="text-center">
-          {users.map((user) => (
-            <tr key={user.id} className="border border-gray-300">
-              <td>{user.username}</td>
-              <td>{user.email}</td>
-              <td>{user.phone}</td>
-              <td>{user.role}</td>
-              <td>{user.identification}</td>
-              <td>
-                <a
-                  href={`/edit-user/${user.id}`}
-                  className="bg-blue-500 text-white p-2 rounded-md"
-                >
-                  Editar
-                </a>
-              </td>
-              <td>
-                <button 
-                    onClick={() => handleDelete(user.id)}
-                    className="bg-red-500 text-white p-1 rounded-md">
-                  Eliminar
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+        <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
+          <table className="w-full min-w-180 text-sm">
+            <thead className="bg-gray-50 text-left text-xs font-medium uppercase tracking-wide text-gray-500">
+              <tr>
+                <th className="px-4 py-3 font-medium">Nombre</th>
+                <th className="px-4 py-3 font-medium">Email</th>
+                <th className="px-4 py-3 font-medium">Teléfono</th>
+                <th className="px-4 py-3 font-medium">Identificación</th>
+                <th className="px-4 py-3 font-medium">Acciones</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {users.map((user) => (
+                <tr key={user.id}>
+                  <td className="px-4 py-3">{user.username}</td>
+                  <td className="px-4 py-3">{user.email}</td>
+                  <td className="px-4 py-3">{user.phone}</td>
+                  <td className="px-4 py-3">{user.identification}</td>
+                  <td className="px-4 py-3">
+                    <div className="flex gap-2">
+                      <a
+                        href={`/edit-user/${user.id}`}
+                        className="rounded-md bg-blue-600 px-3 py-1.5 text-xs font-medium text-white"
+                      >
+                        Editar
+                      </a>
+                      <button
+                        onClick={() => handleDelete(user.id)}
+                        className="rounded-md bg-red-600 px-3 py-1.5 text-xs font-medium text-white"
+                      >
+                        Eliminar
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
-      <div className="mt-2 mb-10">
+      <div>
         <a
           href="/create-user"
-          className="bg-blue-500 text-white p-2 rounded-md"
+          className="inline-block rounded-lg bg-black px-4 py-2 text-sm font-medium text-white"
         >
           Crear Usuario
         </a>
